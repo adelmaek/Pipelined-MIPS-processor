@@ -1,0 +1,13 @@
+C080020 	//lw $8 32($zero) loads the value in address 8 to reg 8 $t0=8 right now
+8C090024	// same but for the next reg 	 $t1=9
+8C0A0028	//$t2=10
+8C0B002C	//$t3=11		
+8C0C0030	//$t4=12
+8C0D0034	//$t5=13		
+012B4820		//add t1 t1 t3 	//t1=9, t3=11 //expected output $9=$t1=20
+018A5822		//sub t3 t4 t2	//t4=12, t2=10 //expected output $11=$t3=2 
+8D090000		//lw t1 0(t0)	//t0=8, DataMem[(8+0)/4]=2 //$t1=$9=2
+112B0001		//beq t1 t3 L, 	//hazard of lw then beq//branch is taken, expected is 2 stalls then 1 flush, L
+010B5020		//add t2 t0 t3		//not executed
+010B6024		//and t4 t0 t3		<--L this is where it jumps, t0=8, t3=2, (2 & 8 =0) 
+						//expected output $t4=$12=0 
