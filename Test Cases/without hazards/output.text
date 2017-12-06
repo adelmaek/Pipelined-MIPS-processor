@@ -1,0 +1,12 @@
+                 901 clk=1  registerFile[ 8]=          8
+                1101 clk=1  registerFile[ 9]=          9
+                1301 clk=1  registerFile[10]=         10
+                1501 clk=1  registerFile[11]=         11
+                1701 clk=1  registerFile[12]=         12
+                1901 clk=1  registerFile[13]=         13
+                1903 clk=1  DataMemory[         1]=          9
+                2301 clk=1  registerFile[ 8]=         16
+                2501 clk=1  registerFile[ 9]=          0
+                2701 clk=1  registerFile[10]=         20
+                3101 clk=1  registerFile[11]=         20
+                3301 clk=1  registerFile[12]=         20

@@ -1,0 +1,16 @@
+//initialization of Register File by loading from Memory
+
+
+8C080020 	//lw $8 32($zero) loads the value in address 8 to reg 8 $t0=8 right now
+8C090024	// same but for the next reg 	 $t1=9
+8C0A0028	//$t2=10
+8C0B002C	//$t3=11		
+8C0C0030	//$t4=12
+8C0D0034	//$t5=13
+AC090004 //sw t1 0x0004 $zero
+01084020 //add t0 t0 t0
+01294822 //sub t1 t1 t1
+000A5040 //sll t2  t2 0x0001
+11090001 //beq t0 t1 L1
+014A5824 // and t3 t2 t2
+016B6025 //L1: or t4 t3 t3
