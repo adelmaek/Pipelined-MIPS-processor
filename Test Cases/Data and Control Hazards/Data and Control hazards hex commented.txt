@@ -1,0 +1,17 @@
+//initialization of Register File by loading from Memory
+
+
+8C080020 	//lw $8 32($zero) loads the value in address 8 to reg 8 $t0=8 right now
+8C090024	// L1:same but for the next reg 	 $t1=9             ----> L1
+8C0A0028	//$t2=10
+8C0B002C	//$t3=11		
+8C0C0030	//$t4=12
+8C0D0034	//$t5=13
+01AD7020	//add t6 t5 t5  (1 stall then add)  -->t6=26
+11CD0001	//beq t6 t5 0x0001 		    --> branch not taken
+01CD7822	//sub t7 t6 t5			    -->t7= 13
+010FC024	//and t8 t0 t7			    -->t8 = 8
+030D4025	//or t0 t8 t5			    -->t0 =13
+0018C040	//sll t8 t8 1			    -->t8 = 16
+8F0E0004	//lw t6 0x0004 t8		    -->t6=5
+11CEFFF3	//beq t6 t6 L1 (2 stalls + 1 Flushed + executing the branch address) -->branch taken
