@@ -1,0 +1,14 @@
+8C080020 	//lw $8 32($zero) loads the value in address 8 to reg 8 $t0=8 right now
+8C090024	//same but for the next reg 	 $t1=9           
+8C0A0028	//$t2=10
+8C0B002C	//$t3=11		
+8C0C0030	//$t4=12
+8C0D0034	//$t5=13
+012A4020	//add t0 t1 t2  //t0=19
+01484822	//sub t1 t2 t0  //t1=-9
+000B7040	//sll t6 t3 0x0001	//t6=22
+012A7820	//add t7 t1 t2		//t7=1	
+11EF0002	//beq t7 t7 L		1 stall then flush because branch is taken
+012C6820	//add t5 t1 t4		//skipped
+01084022	//sub t0 t0 t0		//skipped
+01484822	//L:sub t1 t2 t0	//t1 =-9
