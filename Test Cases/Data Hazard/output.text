@@ -1,0 +1,13 @@
+                 901 clk=1  registerFile[ 8]=          8
+                1101 clk=1  registerFile[ 9]=          9
+                1301 clk=1  registerFile[10]=         10
+                1501 clk=1  registerFile[11]=         11
+                1701 clk=1  registerFile[12]=         12
+                1901 clk=1  registerFile[13]=         13
+                2101 clk=1  registerFile[16]=         22
+                2301 clk=1  registerFile[20]=          1
+                2501 clk=1  registerFile[17]=          0
+                2701 clk=1  registerFile[11]=          1
+                2901 clk=1  registerFile[19]=         -1
+                3101 clk=1  registerFile[18]=         11
+                3301 clk=1  registerFile[16]=         -9

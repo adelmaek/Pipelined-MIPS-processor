@@ -1,0 +1,16 @@
+//initialization of Register File by loading from Memory
+
+
+8C080020 	//lw $8 32($zero) loads the value in address 8 to reg 8 $t0=8 right now
+8C090024	// same but for the next reg 	 $t1=9
+8C0A0028	//$t2=10
+8C0B002C	//$t3=11		
+8C0C0030	//$t4=12
+8C0D0034	//$t5=13
+016B8020  	// add $S0 $t3 $t3	t3=11, so $S0 $16 = 22				//expected output =22
+0149A022	//sub $s4 $t2 $t1	regular case, t2=10, $t1=9 			//expected output $S4=1
+00008824	//and $S1 $0 $0		regular case 					// $S1=0
+02345820	//add $t3 $S1 $S4 	//$S4=1 , $S1=0 //forwarding from ALU to ALU	//expected output $t3=1
+012A9822	//sub $S3 $t1 $t2	//$t1=9 $t2=10 					//expected output $S3=-1
+016A9025 	//or $S2 $t3 $t2	//$t3=1 $t2=10 		//expected output $s2=11(0001 or 1010 =1011) $s2=11
+02688022	//sub $s0 $s3 $t0 	// $s3=-1 //forwarded from MEM to ALU  $t0=8, 	//expected output $s0=-9
