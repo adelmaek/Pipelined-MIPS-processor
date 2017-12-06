@@ -1,0 +1,27 @@
+//initialization of Register File by loading from Memory
+
+
+8C080020 	//lw $8 32($zero) loads the value in address 8 to reg 8 $t0=8 right now
+8C090024	// same but for the next reg 	 $t1=9
+8C0A0028	//$t2=10
+8C0B002C	//$t3=11		
+8C0C0030	//$t4=12
+8C0D0034	//$t5=13
+01498020 //add s0 t2 t1  	
+8D0E0004 //lw t6 0x0004 t0	
+01C88820 //add s1 t6 t0		//case hazard one,$t6 cause one stall,then forwarding from MEM to ALU
+02314022 // sub t0 s1 s1	//forwarding from ALU to ALU//testing forwardA and ForwardB
+01285020 // L1 :add t2 t1 t0	//forwarding again from ALU to ALU 
+1149FFFE // beq t2 t1 L1 *taken*(infinite loop)	//branch forwarding testing
+			//t2 is forwarding from the previous instruction (sub) 
+			//1 stall is detected first 
+			//then the branch is taken so 1 Flush is detected //flush is at 
+			//then the branch address is used 
+			//  jumps to the prev instr,
+			//causes inifite loop
+
+//expected o/p $16=$s0=19
+//expected o/p $14=$t6=3
+//expected o/p $17=$s1=11
+//expected o/p $8=$t0=0
+//expected o/p $10=t2=9
