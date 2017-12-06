@@ -4,12 +4,12 @@ This is an implentation of MIPS piplined processors, the implemented processors 
 Test cases are implemented such that it loads data from data memory into registers then it operates on them.
 
 
-Main Modules directory:
+**Main Modules directory:
 
 Each main module is written in a separate file.
 
 
-Test Cases directory:
+**Test Cases directory:
 
 1-without hazards
 
